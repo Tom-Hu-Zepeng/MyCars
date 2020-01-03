@@ -8,7 +8,7 @@ class MyCarsApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println("出来哦");
+		System.out.println("出");
 	}
 
 }
