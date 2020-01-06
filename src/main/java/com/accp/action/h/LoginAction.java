@@ -20,6 +20,12 @@ public class LoginAction {
 	@Autowired
 	private LoginBiz biz;
 	
+	/**
+	 * 卡
+	 * @param empUserName
+	 * @param userPwd
+	 * @return
+	 */
 	@GetMapping("/{empUserName}/{userPwd}")
 	public Map<String, Object>  queryByUsers(@PathVariable String empUserName,@PathVariable String userPwd) {
 		EmpLogin loh=biz.queryByUsers(empUserName, userPwd);
