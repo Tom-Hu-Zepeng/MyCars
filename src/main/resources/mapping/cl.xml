@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.accp.dao.x.XDao">
+	
+	<resultMap type="vinfo" id="vinfoMap">
+		<id column="vnum" property="vnum"/>
+		<result column="vbrand" property="vbrand"/>
+		<result column="vmode" property="vmode"/>
+		<result column="vdriver" property="vdriver"/>
+		<result column="vdrivernum" property="vdrivernum"/>
+		<result column="vdriverdate" property="vdriverdate"/>
+		<result column="vaffiliation" property="vaffiliation"/>
+		<result column="jbrq" property="jbrq"/>
+		<result column="vin" property="vin"/>
+		<result column="venginenum" property="venginenum"/>
+		<result column="vmj" property="vmj"/>
+		<result column="vmileage" property="vmileage"/>
+		<result column="endid" property="endid"/>
+		<result column="vload" property="vload"/>
+		<result column="vbuydate" property="vbuydate"/>
+		<result column="sprq" property="sprq"/>
+		<result column="cjrq" property="cjrq"/>
+		<result column="insuname" property="insuname"/>
+		<result column="insurq" property="insurq"/>
+		<result column="insuname2" property="insuname2"/>
+		<result column="insurq2" property="insurq2"/>
+		<result column="wtb" property="wtb"/>
+		<result column="rytype" property="rytype"/>
+		<result column="upkeeplc" property="upkeeplc"/>
+		<result column="date" property="date"/>
+		<result column="custname" property="custname"/>
+	</resultMap>
+	
+	<select id="queryvinfo" resultMap="vinfoMap">
+				SELECT v.`vnum`,t.`trkname`,v.`vmode`,v.`vdriver`,v.`vdrivernum`,v.`vdriverdate`,v.`vaffiliation`,v.`jbrq`,v.`vin`,v.`venginenum`,e.`endname`,v.`vmileage`,v.`vload`,
+	v.`vbuydate`,v.`sprq`,v.`cjrq` FROM vinfo v  LEFT JOIN `enginebrand` e ON v.`endid`=e.`endid` LEFT JOIN `trademark` t ON v.`vbrand`=t.`trkid`
+	</select>
+	
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.accp.dao.x.XDao">
+	
+	<resultMap type="vbaoyang" id="byMap">
+		<id column="vid" property="vid"/>
+		<result column="vnum" property="vnum"/>
+		<result column="vupkeepname" property="vupkeepname"/>
+		<result column="vplandate" property="vplandate"/>
+		<result column="vplanmileage" property="vplanmileage"/>
+		<result column="vactualdate" property="vactualdate"/>
+		<result column="vactualmileage" property="vactualmileage"/>
+	</resultMap>
+	
+	<select id="queryby" resultMap="byMap">
+		select * from baoyang where vnum = #{vnum} 
+	</select>
+	
+	<select id="loadby" resultType="com.accp.pojo.vbaoyang">
+		SELECT * FROM
+		baoyang
+		where
+		vid=#{vid}
+	</select>
+	
+	<select id="querybylist"  resultMap="byMap">
+		select * from baoyang
+	</select>
+	
+	<delete id="deleteby">
+		delete from baoyang where vid = #{vid} 
+	</delete>
+	
+	<insert id="savaby">
+		insert into baoyang(vupkeepname,vplandate,vplanmileage)
+		values(#{by.vupkeepname},#{by.vplandate,jdbcType=DATE},#{by.vplanmileage})
+	</insert>
+	
+	<update id="updategby">
+		update baoyang
+		<set>
+			<if test="by.vupkeepname!=null">
+				vupkeepname=#{by.vupkeepname},
+			</if>
+			<if test="by.vplandate!=null">
+				vplandate=#{by.vplandate,jdbcType=DATE},
+			</if>
+			<if test="by.vplanmileage!=null">
+				vplanmileage=#{by.vplanmileage},
+			</if>
+		</set>
+		where vid=#{by.vid}
+	</update>
+	
+</mapper>
