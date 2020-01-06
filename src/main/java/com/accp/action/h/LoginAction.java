@@ -21,7 +21,6 @@ public class LoginAction {
 	private LoginBiz biz;
 	
 	/**
-	 * 卡
 	 * @param empUserName
 	 * @param userPwd
 	 * @return
