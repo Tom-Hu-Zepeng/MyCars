@@ -42,7 +42,7 @@
 	
 	<select id="queryMh" resultMap="vinfoMap">
 		SELECT v.`vnum`,t.`trkname`,v.`vmode`,v.`vdriver`,v.`vdrivernum`,v.`vdriverdate`,v.`vaffiliation`,v.`jbrq`,v.`vin`,v.`venginenum`,e.`endname`,v.`vmileage`,v.`vload`,
-	v.`vbuydate`,v.`sprq`,v.`cjrq` FROM vinfo v  LEFT JOIN `enginebrand` e ON v.`endid`=e.`endid` LEFT JOIN `trademark` t ON v.`vbrand`=t.`trkid` 
+	v.`vbuydate`,v.`sprq`,v.`cjrq` FROM vinfo v  LEFT JOIN `enginebrand` e ON v.`endid`=e.`endid` LEFT JOIN `trademark` t ON v.`vbrand`=t.`trkid` where v.`vdriver` like #{%vdriver%}
 	</select>
 	
 </mapper>
